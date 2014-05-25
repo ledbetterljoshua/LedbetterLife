@@ -1,33 +1,26 @@
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "Rresumè", root_path, class: "navbar-brand" %> 
-    </div>
+<nav class="navbar-brand navbar-static-top left" role="navigation">
+      <%= link_to posts_path do %>
+      <span style=color:white; class="glyphicon glyphicon-user"></span>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
+      <% end %>
 
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
+      <%= link_to pins_path do %>
+      <span style=color:white; class="glyphicon glyphicon-picture"></span>
+      <% end %>
+
         <% if user_signed_in? %>
-          <li>
-            <%= link_to new_pin_path do %>
-              <span class="glyphicon glyphicon-plus"></span> New Pin
+
+          <%= link_to new_post_path do %>  
+            <span class="glyphicon glyphicon-plus"></span> New post  
             <% end %>
-          </li>
-          <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+
+            <%= link_to new_pin_path do %>
+              <span class="glyphicon glyphicon-plus"></span> New Photo
+            <% end %>
+<%= link_to "Account Settings", edit_user_registration_path %>
         <% else %>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <%= link_to "Sign in", new_user_session_path %>
         <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div>
+    </div>
 </nav>
+
