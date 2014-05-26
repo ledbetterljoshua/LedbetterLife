@@ -14,7 +14,6 @@
 
         <h2 class="lead2"> Joshua Ledbetter </h2>
         <p class="lead"> Welcome to my site, take a look around!</p>
-        <hr style="background-color: black;">
 
 
   <% @posts.each do |post| %>
@@ -23,20 +22,26 @@
 
         <div class="container3"
         <p><%= post.body %></p>
+          <%= post.user.try(:name) %>
+
 
           <div class="actions">
+          <% if current_user && post.user == current_user %>
             <%= link_to edit_post_path(post) do %>
-
               Edit
-            <% end %>
+<% end %>
             <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-
               Delete
+              <% end %>
             <% end %>
+          </br>
+
           </div>
         </div>
         <% end %>
       </div>
-    </div>
+
+        </div>
+
         
 
