@@ -1,8 +1,6 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
-  <div class="container">
 
- 
       <div class="profileimage"</div>
    
 
@@ -24,7 +22,7 @@
         <p><%= post.body %></p>
           <%= post.user.try(:name) %>
 
-
+          
           <div class="actions">
           <% if current_user && post.user == current_user %>
             <%= link_to edit_post_path(post) do %>
