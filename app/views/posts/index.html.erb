@@ -23,6 +23,9 @@
         <div class="container3"
         <p><%= post.body %></p>
           <%= post.user.try(:name) %>
+          <div class="time">
+          <%= link_to time_ago_in_words(post.created_at) + " ago", post %>
+        </div>
 
           
           <div class="actions">
