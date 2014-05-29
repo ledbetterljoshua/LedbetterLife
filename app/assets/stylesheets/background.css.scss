@@ -58,7 +58,7 @@ h3 {
 
 .jumbotron {
 
-	background-image: url(image_path('stars.jpg'));
+	background-image: url(image_path('swamp.jpg'));
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -133,6 +133,12 @@ hr.shadow {
 		width: 100%;
 		margin-top: 80px;
 	    box-shadow: 50px rgba(0, 0, 0, .8);
+}
+
+.center {
+	    display: block;
+    margin-left: 50px;
+    margin-right: auto;
 }
 
 .center1 {
@@ -219,9 +225,7 @@ color:#fff;
 }
 
 .right {
- position:absolute;
- top:20px;
- right:20px;
+    margin-left: 400px;
 
 }
 

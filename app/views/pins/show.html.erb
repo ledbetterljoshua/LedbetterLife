@@ -1,7 +1,20 @@
 <div class="container4">
 
 <div class="row top1">
+
+
   <div class="col-md-offset-2 col-md-8">
+
+
+      <div class="right">
+   <%= link_to @pin.previous do %>
+<span class="glyphicon glyphicon-chevron-left"></span>
+      <% end %>
+       <%= link_to @pin.next do %>
+<span class="glyphicon glyphicon-chevron-right"></span>
+      <% end %></div>
+
+
     <div class="panel panel-default">
     <div class="panel-heading center">
       <%= image_tag @pin.image.url(:medium) %>
@@ -16,7 +29,14 @@
         Edit
       <% end %>
     <% end %>
+
+    </div>
     </div>
   </div>
 
+
 </div>
+
+
+
+  
