@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
  	has_many :pins 
  	has_many :posts
+ 	has_many :avatars
+ 	has_one :profile
 
  	validates :name, presence: true
 

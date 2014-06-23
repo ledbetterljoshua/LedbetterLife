@@ -1,5 +1,6 @@
 class Pin < ActiveRecord::Base
 	belongs_to :user
+	has_one :profile
 
 	def previous
   Pin.where(["id < ?", id]).order(:id).last

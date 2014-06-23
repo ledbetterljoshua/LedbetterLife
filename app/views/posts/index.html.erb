@@ -13,6 +13,7 @@
         <p class="lead"> Space traveller. Calvin and Hobbes enthusiast. <br/>I specialize in over-analysis</p>
 
         <% if user_signed_in? %>
+
         <%= link_to new_post_path do %>
         <div class="button">New Post</div>
 
@@ -28,7 +29,6 @@
 
         <div class="container3"
         <p><%= post.body %></p>
-
           <div class="time">
           <%= link_to time_ago_in_words(post.created_at) + " ago", post %>
         </div>

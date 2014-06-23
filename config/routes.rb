@@ -1,4 +1,9 @@
 App::Application.routes.draw do
+  resources :profiles
+
+  resources :avatars
+
+  get "profiles/show"
   resources :posts
   resources :pins
 
