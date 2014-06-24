@@ -9,6 +9,7 @@ App::Application.routes.draw do
 
   devise_for :users
   root "posts#index"
+  
 
   get "main" => "pages#main"
   get "joshua" => "pages#joshua"

@@ -1,15 +1,16 @@
-<nav class="navbar-brand navbar-static-top left" role="navigation">
+
+  <nav class="navbar-brand navbar-static-top left mobile-nav" role="navigation">
 
       <%= link_to posts_path do %>
       <span style=color:#95a5a6; class="glyphicon glyphicon-user"></span>
 
-      <% end %><br/>
+      <% end %>
 
 
       <%= link_to pins_path do %>
       <span style=color:#95a5a6; class="glyphicon glyphicon-picture"></span>
 
-      <% end %><br/>
+      <% end %>
 
         <% if user_signed_in? %>
 
@@ -17,17 +18,17 @@
           <%= link_to new_post_path do %>  
             <span class="glyphicon glyphicon-comment"></span>  
 
-            <% end %><br/>
+            <% end %>
 
             <%= link_to new_pin_path do %>
               <span class="glyphicon glyphicon-plus"></span>
 
-            <% end %><br/>
+            <% end %>
 
             <%= link_to edit_user_registration_path do %>
               <span style=color:#95a5a6; class="glyphicon glyphicon-tasks"></span>
 
-            <% end %><br/>
+            <% end %>
         <% else %>
           <%= link_to new_user_session_path do %>
           <span style=color:#95a5a6; class="glyphicon glyphicon-tasks"></span>
@@ -37,3 +38,4 @@
       </div>
     </div>
 </nav>
+</div>
