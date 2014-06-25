@@ -1,4 +1,5 @@
-<div class="container">
+<div class="padding">
+  <div class="container">
 <div id="pins" class="transitions-enabled pins">
   <% @pins.each do |pin| %>
     <div class="box panel panel-default">
@@ -28,4 +29,5 @@
  <hr class="thin">
 <div class="center">
   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>
 </div>

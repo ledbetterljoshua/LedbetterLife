@@ -1,41 +1,24 @@
-
-  <nav class="navbar-brand navbar-static-top left mobile-nav" role="navigation">
-
-      <%= link_to posts_path do %>
-      <span style=color:#95a5a6; class="glyphicon glyphicon-user"></span>
-
-      <% end %>
-
-
-      <%= link_to pins_path do %>
-      <span style=color:#95a5a6; class="glyphicon glyphicon-picture"></span>
-
-      <% end %>
+<div id="nav">
+<%= link_to posts_path do %>
+<p class="title">LedbetterLife<span class="subtitle">.com</span></p>
+<ul id="navigation">
+  <% end %>
+<div class="padding-nav">
+<span class="subtitle"><li><%= link_to "Photos", pins_path %></li></span>
+<span class="subtitle"><li><%= link_to "About", joshua_path %></li></span>
 
         <% if user_signed_in? %>
+          <li><%= link_to "Write Something | ", new_post_path %>  </li>
 
+           <li> <%= link_to "+ Photo | ", new_pin_path %></li>
 
-          <%= link_to new_post_path do %>  
-            <span class="glyphicon glyphicon-comment"></span>  
+            <li><%= link_to "Settings", edit_user_registration_path %></li>
 
-            <% end %>
-
-            <%= link_to new_pin_path do %>
-              <span class="glyphicon glyphicon-plus"></span>
-
-            <% end %>
-
-            <%= link_to edit_user_registration_path do %>
-              <span style=color:#95a5a6; class="glyphicon glyphicon-tasks"></span>
-
-            <% end %>
         <% else %>
-          <%= link_to new_user_session_path do %>
-          <span style=color:#95a5a6; class="glyphicon glyphicon-tasks"></span>
+          <li><%= link_to "| Log In", new_user_session_path %></li>
+
 
         <% end %>
-        <% end %>
-      </div>
-    </div>
-</nav>
+
+</div>
 </div>
