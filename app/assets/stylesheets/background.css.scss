@@ -41,7 +41,6 @@ h3 {
 #main {
 	background: SkyBlue;
 		width: 700px;
-
 		float:left;
 }
 
@@ -54,12 +53,10 @@ h3 {
 .lead {
 		color: grey;
 		text-align: center;
-
 }
 
 .lead2 {
 		color: black;
-		margin-top: 50px;
 		text-align: center;
 }
 
@@ -70,9 +67,11 @@ h3 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+	height: 400px;
     background-attachment: fixed;
-    box-shadow: 40px 10px 50px rgba(30, 0, 0, .30);
     border-bottom:5px solid #fff;
+    border-left:15px solid #fff;
+    border-right:15px solid #fff;
 	}
 
 .profileimage {
@@ -86,7 +85,7 @@ h3 {
     display: block;
     margin-left: auto;
     margin-right: 70%;
-    margin-top: 400px;
+    margin-top: 250px;
     margin-bottom: -150px;
 
 }
@@ -122,16 +121,6 @@ h3 {
 
 }
 
-.container4 {
-
-	background-image: url(image_path('stars.jpg'));
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
-}
-
 hr.shadow {
 		height: 1px;
 		border: 0;
@@ -156,9 +145,10 @@ hr.shadow {
 
 
 .well {
-	width:800px;
+	max-width:80%;
 	background-position:center;
-	margin-left: 100px;
+	margin-left: 20%;
+	margin-right: 20%;
 
 }
 
@@ -273,7 +263,7 @@ a.ex2:active {color:red;}
    }
 .button:hover {
    border: #96d1f8;
-   background: #bdc3c7;
+
      text-decoration: none;
 
    }
@@ -294,6 +284,8 @@ a.ex2:active {color:red;}
     text-align: right;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    top: 30px;
 
 }
 .a {
@@ -320,13 +312,32 @@ a.ex2:active {color:red;}
 
 @media only screen and (max-width: 481px) {
 	.jumbotron {
-		display:none;
+		height: 100%;
 	}
+	.thin {
+		position: relative;
+		bottom: 260px;
+	}
+	h3,
+	.container3,
+	.container3 col {
+		position: relative;
+		bottom: 260px;		
+	}
+
 	.container3 {
-	padding-left: 5%;
-	padding-right: 8%;
+	padding-left: 0px;
+	padding-right: 0px;
 	font-size: 16px;
 }
+	.actions,
+	.time {
+		font-size: 14px;
+	}
+	.time {
+		position: relative;
+		top: 20px;
+	}
 
 	#nav {
      width:100%;
@@ -351,15 +362,71 @@ a.ex2:active {color:red;}
 	 left:15%;
 	 right:10%;
 }
+
 }
 
 /* Tablets to Desktop */
 
 @media only screen and (max-width: 769px) {	
+
+	.thin {
+		position: relative;
+		bottom: 260px;
+	}
+		.time {
+		position: relative;
+		top: 23px;
+	}
+	h3,
+	.container3,
+	.container3 col {
+		position: relative;
+		bottom: 260px;		
+	}
+
 	.container3 {
 	padding-left: 15%;
 	padding-right: 15%;
 }
+.button {
+	position: relative;
+	bottom:300px;
+
+}
+	.profileimage {
+	display:none;
+}
+	.lead {
+		color: #EDEDED;
+		text-align: center;
+		position: relative;
+		bottom:340px;
+
+}
+
+	.lead2 {
+			color: black;
+			text-align: center;
+			position: relative;
+			bottom:340px;
+	}
+.button {
+   background: transparent;
+   color: #fff;
+
+   }
+.button:hover {
+   border: #96d1f8;
+   background: #EDEDED;
+   color:black;
+     text-decoration: none;
+
+   }
+.button:active {
+   border: #ffffff;
+   background: transparent;
+     text-decoration: none;
+   }
 }
 
 @media only screen and (max-width: 1024px) {	
