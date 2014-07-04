@@ -1,11 +1,12 @@
 <div id="nav">
-<%= link_to posts_path do %>
+<%= link_to joshua_path do %>
 <p class="title">LedbetterLife<span class="subtitle">.com</span></p>
 <ul id="navigation">
   <% end %>
 <div class="padding-nav">
 <span class="subtitle"><li><%= link_to "Photos", pins_path %></li></span>
-<span class="subtitle"><li><%= link_to "About", joshua_path %></li></span>
+<span class="subtitle"><li><%= link_to "Blog", posts_path %></li></span>
+<!--<span class="subtitle"><li><%= link_to "Portfolio", main_path %></li></span>-->
 
         <% if user_signed_in? %>
           <li><%= link_to "Write Something | ", new_post_path %>  </li>

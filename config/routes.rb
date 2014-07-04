@@ -8,7 +8,7 @@ App::Application.routes.draw do
   resources :pins
 
   devise_for :users
-  root "posts#index"
+  root "pages#joshua"
   
 
   get "main" => "pages#main"
