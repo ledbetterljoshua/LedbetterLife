@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def joshua 
   end
+
+  def portfolio 
+  end
 end

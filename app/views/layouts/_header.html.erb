@@ -6,7 +6,7 @@
 <div class="padding-nav">
 <span class="subtitle"><li><%= link_to "Photos", pins_path %></li></span>
 <span class="subtitle"><li><%= link_to "Blog", posts_path %></li></span>
-<!--<span class="subtitle"><li><%= link_to "Portfolio", main_path %></li></span>-->
+
 
         <% if user_signed_in? %>
           <li><%= link_to "Write Something | ", new_post_path %>  </li>
@@ -16,6 +16,7 @@
             <li><%= link_to "Settings", edit_user_registration_path %></li>
 
         <% else %>
+          <li><%= link_to "Portfolio", portfolio_path %></li>
           <li><%= link_to "| Log In", new_user_session_path %></li>
 
 
