@@ -1,15 +1,28 @@
-
-  <% @pins.each do |pin| %>
+ <nav class="codrops-demos">
+   <a href="http://www.ledbetterlife.com">Home</a>
+<%= link_to "Photos", pins_path, :class => "current-demo" %>  
+<%= link_to "Blog", posts_path %>  
+<%= link_to "Portfolio", portfolio_path %>
+  <% if user_signed_in? %>
+      <%= link_to "Write Something | ", new_post_path %>  
+      <%= link_to "+ Photo | ", new_pin_path %>
+      <%= link_to "Settings", edit_user_registration_path %>
+  <% else %>
+      <%= link_to "| Log In", new_user_session_path %>
+ <% end %>
+</nav>
 <div class="grid">
+  <% @pins.each do |pin| %>
+
     <figure class="effect-layla">
-      <%= link_to image_tag(pin.image.url(:medium)), pin %>
+      <%= image_tag pin.image.url(:medium), :class => "style_image" %>
         <figcaption>
         <h2><%= pin.description %></h2>
         <p><%= pin.user.name if pin.user %></p>
        </figcaption>
    </figure>
-  </div>
-  <% end %>
 
+  <% end %>
+  </div>
   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
 
