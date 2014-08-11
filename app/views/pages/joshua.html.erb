@@ -1,33 +1,190 @@
-<!-- Jumbotron -->
-<div class="jumbotron">
-      <div class="profileimage"</div>
-<!-- end jumbotron -->
-</div>
- </div>
-    <h2 class="lead2"> Joshua Ledbetter </h2>
-    <p class="lead"> Space traveller. Calvin and Hobbes enthusiast. <br/>I specialize in over-analysis</p>
-
-    <div class="container">
-
-
-        <div class="col-sm-10">
-          <b class="glyphicon glyphicon-user col-sm-4"></b>
-
-           <p1>Hi, My name is Joshua Ledbetter. I am an aspiring web designer, web developer and magic-man of the interwebs. I currently am working for an Ecommerce company called Volusion where the only interaction I really get with coding comes from fixed other peoples broken websites, which can be pretty fun, but also not exacly what I want to do for the rest of my life. I built this site as a project for myself. It is build on Ruby on Rails and has a full stack user expirience, with user authentication and the ability to blog and upload photos."</p1>
-        </div>
-
-        <br>
-
-        <div class="col-sm-8 pull-right">
-                    <b class="glyphicon glyphicon-camera pull-right"></b>
-
-          <p>I like to spend my time learning, taking pictures, swimming and watching Netflix. When Im not swimming, working or watching TV I'm usually trying to wrap my head around some random JavaScript Query. </p>
-       </div>
-
-        <div class="col-sm-10">
-          <b class="glyphicon glyphicon-cloud col-sm-4"></b>
-
-          <p>I grew up in Cork Ireland and moved to California when I was 18. After living ther for a year I deided to move to Texas, where I had a lot of family, so It made the transistion easy. Anyways, Enough about me. Take a look around the site! Theres not much here right now, but that will change soon :) </p>
-        </div>
+<body class="demo-2">
+  <div id="container" class="container intro-effect-fadeout">
+      <!-- Top Navigation -->
+      <div class="codrops-top clearfix">
+        <a class="codrops-icon codrops-icon-prev" href="http://www.ledbetterlife.com/"><span>Home</span></a>
+        <span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19119"><span>About Me</span></a></span>
       </div>
-      <hr>
+      <header class="header">
+        <div class="bg-img"><%= image_tag("imac.jpg", :alt => "rss feed") %></div>
+        <div class="title">
+          <nav class="codrops-demos">
+            <a class="current-demo" href="http://www.ledbetterlife.com">Home</a>
+        <%= link_to "Photos", pins_path %>  
+        <%= link_to "Blog", posts_path %>  
+        <%= link_to "Portfolio", portfolio_path %>
+        <% if user_signed_in? %>
+          <%= link_to "Write Something | ", new_post_path %>  
+          <%= link_to "+ Photo | ", new_pin_path %>
+          <%= link_to "Settings", edit_user_registration_path %>
+        <% else %>
+          <%= link_to "| Log In", new_user_session_path %>
+        <% end %>
+          </nav>
+          <h1>Ledbetterlife.com</h1>
+          <p class="subline">The Online Home of Joshua Ledbetter</p>
+          <p>by <strong>Mark Satorini</strong> &#8212; Posted in <strong>Animals</strong> on <strong>May 21, 2014</strong></p>
+        </div>
+      </header>
+      <button class="trigger" data-info="Scroll"><span>Trigger</span></button>
+      <article class="content">
+        <div>
+          <p>Hi there, thanks for checking out my site.  </p>
+          <p>This website is build on Ruby on Rails, and utilizes a lot of its awesome features. I also was able to work with Sass and Coffee Script on this project, which Rails ships with by Defaut</p>
+          <p>Anyways, my name is Joshua Ledbetter, and hopefully you are reading this because you want to hire me. I have been programming for about two years now, and I just cant get enough. I haven't quite decided if I want to be a front end developer or a back end developer. I have such a love for beautiful designs, but also for the simplicity and beauty of the Ruby language. </p>
+          <p>I am self tought, with knowledge in HTML, CSS, Sass, jQuery, Javascrip, Ruby and Ruby on Rails. And I owe it all to Google.  </p>
+          <p>Right now I am working for a ecommerce company called <a href="http://www.volusion.com" target="_blank"> Volusion</a></p>
+          <p>I work in the tech support department as a software technician, and the only code I really get to work with is the broken templates that people like to call in about. This isn't bad, but I would like more of a challenge. </p>
+          
+          <p><strong>Thanks for checking out the site!</strong></p>
+        </div>
+      </article>
+      <section class="related">
+        <p>If you would like to see more of my work, follow the link below:</p>
+        <div><h4><%= link_to "Portfolio", portfolio_path %></h4></div>
+      </section>
+    </div><!-- /container -->
+    <script src="js/classie.js"></script>
+    <script>
+      (function() {
+
+        // detect if IE : from http://stackoverflow.com/a/16657946    
+        var ie = (function(){
+          var undef,rv = -1; // Return value assumes failure.
+          var ua = window.navigator.userAgent;
+          var msie = ua.indexOf('MSIE ');
+          var trident = ua.indexOf('Trident/');
+
+          if (msie > 0) {
+            // IE 10 or older => return version number
+            rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+          } else if (trident > 0) {
+            // IE 11 (or newer) => return version number
+            var rvNum = ua.indexOf('rv:');
+            rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+          }
+
+          return ((rv > -1) ? rv : undef);
+        }());
+
+
+        // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179          
+        // left: 37, up: 38, right: 39, down: 40,
+        // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+        var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+        function preventDefault(e) {
+          e = e || window.event;
+          if (e.preventDefault)
+          e.preventDefault();
+          e.returnValue = false;  
+        }
+
+        function keydown(e) {
+          for (var i = keys.length; i--;) {
+            if (e.keyCode === keys[i]) {
+              preventDefault(e);
+              return;
+            }
+          }
+        }
+
+        function touchmove(e) {
+          preventDefault(e);
+        }
+
+        function wheel(e) {
+          // for IE 
+          //if( ie ) {
+            //preventDefault(e);
+          //}
+        }
+
+        function disable_scroll() {
+          window.onmousewheel = document.onmousewheel = wheel;
+          document.onkeydown = keydown;
+          document.body.ontouchmove = touchmove;
+        }
+
+        function enable_scroll() {
+          window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+        }
+
+        var docElem = window.document.documentElement,
+          scrollVal,
+          isRevealed, 
+          noscroll, 
+          isAnimating,
+          container = document.getElementById( 'container' ),
+          trigger = container.querySelector( 'button.trigger' );
+
+        function scrollY() {
+          return window.pageYOffset || docElem.scrollTop;
+        }
+        
+        function scrollPage() {
+          scrollVal = scrollY();
+          
+          if( noscroll && !ie ) {
+            if( scrollVal < 0 ) return false;
+            // keep it that way
+            window.scrollTo( 0, 0 );
+          }
+
+          if( classie.has( container, 'notrans' ) ) {
+            classie.remove( container, 'notrans' );
+            return false;
+          }
+
+          if( isAnimating ) {
+            return false;
+          }
+          
+          if( scrollVal <= 0 && isRevealed ) {
+            toggle(0);
+          }
+          else if( scrollVal > 0 && !isRevealed ){
+            toggle(1);
+          }
+        }
+
+        function toggle( reveal ) {
+          isAnimating = true;
+          
+          if( reveal ) {
+            classie.add( container, 'modify' );
+          }
+          else {
+            noscroll = true;
+            disable_scroll();
+            classie.remove( container, 'modify' );
+          }
+
+          // simulating the end of the transition:
+          setTimeout( function() {
+            isRevealed = !isRevealed;
+            isAnimating = false;
+            if( reveal ) {
+              noscroll = false;
+              enable_scroll();
+            }
+          }, 600 );
+        }
+
+        // refreshing the page...
+        var pageScroll = scrollY();
+        noscroll = pageScroll === 0;
+        
+        disable_scroll();
+        
+        if( pageScroll ) {
+          isRevealed = true;
+          classie.add( container, 'notrans' );
+          classie.add( container, 'modify' );
+        }
+        
+        window.addEventListener( 'scroll', scrollPage );
+        trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+      })();
+    </script>
+    </body>

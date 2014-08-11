@@ -1,31 +1,15 @@
-<div class="padding">
-  <div class="container">
-<div id="pins" class="transitions-enabled pins">
-  <span id="imageGallery">
+
   <% @pins.each do |pin| %>
-    <div class="box panel panel-default">
+<div class="grid">
+    <figure class="effect-layla">
       <%= link_to image_tag(pin.image.url(:medium)), pin %>
-      <div class="panel-body">
-        <p><%= pin.description %></p>
-        <p><strong><%= pin.user.name if pin.user %></strong></p>
-        
-        <% if current_user && pin.user == current_user %>
-          <div class="actions">
- <!--           <%= link_to edit_pin_path(pin) %>
-
-            <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' }  %>-->
-
-          </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
+        <figcaption>
+        <h2><%= pin.description %></h2>
+        <p><%= pin.user.name if pin.user %></p>
+       </figcaption>
+   </figure>
+  </div>
   <% end %>
-</div>
-</span>
 
- <hr class="thin">
-<div class="center">
   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
-</div>
-</div>
+

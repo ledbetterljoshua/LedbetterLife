@@ -1,56 +1,205 @@
-<!-- Jumbotron -->
-<div class="jumbotron1">
-      <div class="profileimage"</div>
-
-<!-- end jumbotron -->
- 
-</div>
- </div></br></br>
-
-
-        <h2 class="lead2"> Joshua Ledbetter </h2>
-        <p class="lead"> Space traveller. Calvin and Hobbes enthusiast. <br/>Blog</p>
-
-        <!--<% if user_signed_in? %>
-
-        <%= link_to new_post_path do %>
-        <div class="button">New Post</div>
-
-        <% end %>
+    <div id="container" class="container intro-effect-sidefixed">
+      <!-- Top Navigation -->
+      <div class="codrops-top clearfix">
+        <a class="codrops-icon codrops-icon-prev" href="http://wwww.ledbetterlife.com/"><span>Home</span></a>
+        <span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19119"><span>About Me</span></a></span>
+      </div>
+      <header class="header">
+        <div class="bg-img"><%= image_tag("type.jpg", :alt => "background Image") %></div>
+      </header>
+      <button class="trigger" data-info="Scroll"><span>Trigger</span></button>
+      <article class="content">
+        <div class="title">
+          <nav class="codrops-demos">
+        <%= link_to "Photos", pins_path %>  
+        <%= link_to "Blog", posts_path %>  
+        <%= link_to "Portfolio", portfolio_path %>
+        <% if user_signed_in? %>
+          <%= link_to "Write Something | ", new_post_path %>  
+          <%= link_to "+ Photo | ", new_pin_path %>
+          <%= link_to "Settings", edit_user_registration_path %>
         <% else %>
-        <a href="https://www.twitter.com/ledbetterjoshau" alt="twitter">
-        <div class="button">follow</div></a>
-        <% end %>-->
+          <%= link_to "| Log In", new_user_session_path %>
+        <% end %>          </nav>
+          <h1> Welcome to my blog</h1>
+          <p class="subline">There's not much going on here. I'm not much of a writer</p>
+  <hr class="thin">
+        </div>
+        <div>
 
   <% @posts.each do |post| %>
-
-  <hr class="thin">
-          <h3><%= post.title %></h3>
-
-        <div class="container3 col">
-        <p><%= post.body %></p>
-          <div class="time">
+    <h3 class="center"><%= post.title %></h3>
+    <div class="container3 col">
+      <p><%= post.body %></p>
+        <div class="time">
           <%= link_to time_ago_in_words(post.created_at) + " ago", post %>
         </div>
-
-          
           <div class="actions">
           <% if current_user && post.user == current_user %>
             <%= link_to edit_post_path(post) do %>
               Edit
-<% end %>
+          <% end %>
             <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
               Delete
               <% end %>
             <% end %>
           </br>
-
-
-          </div>
         </div>
+        <hr class="thin">
         <% end %>
-      </div>
     </div>
+      </article>
+      <section class="related">
+        <span class="related-footer">
+        <p>If you enjoyed these effects you might also like:</p>
+        <div><a href="http://tympanus.net/Development/HeaderEffects/"><h4>On Scroll Header Effects</h4></a></div>
+        <div><a href="http://tympanus.net/Tutorials/MediumStylePageTransition/"><h4>Medium-Style Page Transitions</h4></a></div>
+      </section>
+      </span>
+    </div><!-- /container -->
+    <script src="js/classie.js"></script>
+    <script>
+      (function() {
+
+        // detect if IE : from http://stackoverflow.com/a/16657946    
+        var ie = (function(){
+          var undef,rv = -1; // Return value assumes failure.
+          var ua = window.navigator.userAgent;
+          var msie = ua.indexOf('MSIE ');
+          var trident = ua.indexOf('Trident/');
+
+          if (msie > 0) {
+            // IE 10 or older => return version number
+            rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+          } else if (trident > 0) {
+            // IE 11 (or newer) => return version number
+            var rvNum = ua.indexOf('rv:');
+            rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+          }
+
+          return ((rv > -1) ? rv : undef);
+        }());
+
+
+        // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179          
+        // left: 37, up: 38, right: 39, down: 40,
+        // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+        var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+        function preventDefault(e) {
+          e = e || window.event;
+          if (e.preventDefault)
+          e.preventDefault();
+          e.returnValue = false;  
+        }
+
+        function keydown(e) {
+          for (var i = keys.length; i--;) {
+            if (e.keyCode === keys[i]) {
+              preventDefault(e);
+              return;
+            }
+          }
+        }
+
+        function touchmove(e) {
+          preventDefault(e);
+        }
+
+        function wheel(e) {
+          // for IE 
+          //if( ie ) {
+            //preventDefault(e);
+          //}
+        }
+
+        function disable_scroll() {
+          window.onmousewheel = document.onmousewheel = wheel;
+          document.onkeydown = keydown;
+          document.body.ontouchmove = touchmove;
+        }
+
+        function enable_scroll() {
+          window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+        }
+
+        var docElem = window.document.documentElement,
+          scrollVal,
+          isRevealed, 
+          noscroll, 
+          isAnimating,
+          container = document.getElementById( 'container' ),
+          trigger = container.querySelector( 'button.trigger' );
+
+        function scrollY() {
+          return window.pageYOffset || docElem.scrollTop;
+        }
+        
+        function scrollPage() {
+          scrollVal = scrollY();
+          
+          if( noscroll && !ie ) {
+            if( scrollVal < 0 ) return false;
+            // keep it that way
+            window.scrollTo( 0, 0 );
+          }
+
+          if( classie.has( container, 'notrans' ) ) {
+            classie.remove( container, 'notrans' );
+            return false;
+          }
+
+          if( isAnimating ) {
+            return false;
+          }
+          
+          if( scrollVal <= 0 && isRevealed ) {
+            toggle(0);
+          }
+          else if( scrollVal > 0 && !isRevealed ){
+            toggle(1);
+          }
+        }
+
+        function toggle( reveal ) {
+          isAnimating = true;
+          
+          if( reveal ) {
+            classie.add( container, 'modify' );
+          }
+          else {
+            noscroll = true;
+            disable_scroll();
+            classie.remove( container, 'modify' );
+          }
+
+          // simulating the end of the transition:
+          setTimeout( function() {
+            isRevealed = !isRevealed;
+            isAnimating = false;
+            if( reveal ) {
+              noscroll = false;
+              enable_scroll();
+            }
+          }, 600 );
+        }
+
+        // refreshing the page...
+        var pageScroll = scrollY();
+        noscroll = pageScroll === 0;
+        
+        disable_scroll();
+        
+        if( pageScroll ) {
+          isRevealed = true;
+          classie.add( container, 'notrans' );
+          classie.add( container, 'modify' );
+        }
+        
+        window.addEventListener( 'scroll', scrollPage );
+        trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+      })();
+    </script>
 
         
 
