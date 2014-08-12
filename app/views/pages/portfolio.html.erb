@@ -1,3 +1,34 @@
+		<div id="container" class="container intro-effect-sliced">
+			<!-- Top Navigation -->
+      <div class="codrops-top clearfix">
+        <a class="codrops-icon codrops-icon-prev" href="http://www.ledbetterlife.com/"><span>Home</span></a>
+        <span class="right"><a class="codrops-icon codrops-icon-drop" href="http://www.ledbetterlife.com/"><span>About Me</span></a></span>
+      </div>
+      <header class="header">
+        <div class="bg-img2"><%= image_tag("portfolio.jpg", :alt => "rss feed") %></div>
+        <div class="title">
+          <nav class="codrops-demos">
+            <a href="http://www.ledbetterlife.com">Home</a>
+        <%= link_to "Photos", pins_path %>  
+        <%= link_to "Blog", posts_path %>  
+        <%= link_to "Portfolio", portfolio_path, :class => "current-demo" %>
+        <% if user_signed_in? %>
+          <%= link_to "Write Something | ", new_post_path %>  
+          <%= link_to "+ Photo | ", new_pin_path %>
+          <%= link_to "Settings", edit_user_registration_path %>
+        <% else %>
+          <%= link_to "| Log In", new_user_session_path %>
+        <% end %>
+          </nav>
+					<h1>The Work of Joshua Ledbetter</h1>
+					<p class="subline">So far....</p>
+
+				</div>
+				<div class="bg-img2"><%= image_tag("portfolio.jpg", :alt => "Bg image") %></div>
+			</header>
+			<button class="trigger" data-info="Click to see the header effect"><span>Trigger</span></button>
+			<article class="content">
+
 <ul class="ch-grid">
     <li>
         <div class="ch-item ch-img-1">
@@ -32,3 +63,149 @@
         </div>
     </li>    
 </ul>
+			</article>
+
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script>
+			(function() {
+
+				// detect if IE : from http://stackoverflow.com/a/16657946		
+				var ie = (function(){
+					var undef,rv = -1; // Return value assumes failure.
+					var ua = window.navigator.userAgent;
+					var msie = ua.indexOf('MSIE ');
+					var trident = ua.indexOf('Trident/');
+
+					if (msie > 0) {
+						// IE 10 or older => return version number
+						rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+					} else if (trident > 0) {
+						// IE 11 (or newer) => return version number
+						var rvNum = ua.indexOf('rv:');
+						rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+					}
+
+					return ((rv > -1) ? rv : undef);
+				}());
+
+
+				// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179					
+				// left: 37, up: 38, right: 39, down: 40,
+				// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+				var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+				function preventDefault(e) {
+					e = e || window.event;
+					if (e.preventDefault)
+					e.preventDefault();
+					e.returnValue = false;  
+				}
+
+				function keydown(e) {
+					for (var i = keys.length; i--;) {
+						if (e.keyCode === keys[i]) {
+							preventDefault(e);
+							return;
+						}
+					}
+				}
+
+				function touchmove(e) {
+					preventDefault(e);
+				}
+
+				function wheel(e) {
+					// for IE 
+					//if( ie ) {
+						//preventDefault(e);
+					//}
+				}
+
+				function disable_scroll() {
+					window.onmousewheel = document.onmousewheel = wheel;
+					document.onkeydown = keydown;
+					document.body.ontouchmove = touchmove;
+				}
+
+				function enable_scroll() {
+					window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+				}
+
+				var docElem = window.document.documentElement,
+					scrollVal,
+					isRevealed, 
+					noscroll, 
+					isAnimating,
+					container = document.getElementById( 'container' ),
+					trigger = container.querySelector( 'button.trigger' );
+
+				function scrollY() {
+					return window.pageYOffset || docElem.scrollTop;
+				}
+				
+				function scrollPage() {
+					scrollVal = scrollY();
+					
+					if( noscroll && !ie ) {
+						if( scrollVal < 0 ) return false;
+						// keep it that way
+						window.scrollTo( 0, 0 );
+					}
+
+					if( classie.has( container, 'notrans' ) ) {
+						classie.remove( container, 'notrans' );
+						return false;
+					}
+
+					if( isAnimating ) {
+						return false;
+					}
+					
+					if( scrollVal <= 0 && isRevealed ) {
+						toggle(0);
+					}
+					else if( scrollVal > 0 && !isRevealed ){
+						toggle(1);
+					}
+				}
+
+				function toggle( reveal ) {
+					isAnimating = true;
+					
+					if( reveal ) {
+						classie.add( container, 'modify' );
+					}
+					else {
+						noscroll = true;
+						disable_scroll();
+						classie.remove( container, 'modify' );
+					}
+
+					// simulating the end of the transition:
+					setTimeout( function() {
+						isRevealed = !isRevealed;
+						isAnimating = false;
+						if( reveal ) {
+							noscroll = false;
+							enable_scroll();
+						}
+					}, 600 );
+				}
+
+				// refreshing the page...
+				var pageScroll = scrollY();
+				noscroll = pageScroll === 0;
+				
+				disable_scroll();
+				
+				if( pageScroll ) {
+					isRevealed = true;
+					classie.add( container, 'notrans' );
+					classie.add( container, 'modify' );
+				}
+				
+				window.addEventListener( 'scroll', scrollPage );
+				trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+			})();
+		</script>

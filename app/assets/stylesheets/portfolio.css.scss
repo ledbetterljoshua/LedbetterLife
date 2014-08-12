@@ -1,5 +1,5 @@
 .ch-grid {
-    margin: 90px 0 0 0;
+    margin: 0px 0 0 0;
     padding: 0;
     list-style: none;
     display: block;
@@ -73,7 +73,7 @@
     letter-spacing: 2px;
     font-size: 22px;
     margin: 0 30px;
-    padding: 95px 0 0 0;
+    padding: 72px 0 0 0;
     height: 140px;
     font-family: 'Open Sans', Arial, sans-serif;
     text-shadow: 
@@ -121,4 +121,149 @@
 
 .ch-item:hover .ch-info p {
     opacity: 1;
+}
+
+/* -------------------------- */
+/* Sliced */
+/* -------------------------- */
+
+.intro-effect-sliced:not(.notrans) .bg-img2,
+.intro-effect-sliced:not(.notrans) .title {
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+}
+
+.intro-effect-sliced:not(.notrans) .header h1,
+.intro-effect-sliced:not(.notrans) .codrops-demos a {
+    -webkit-transition-property: color;
+    transition-property: color;
+}
+
+.intro-effect-sliced:not(.notrans) .header p {
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+}
+
+.intro-effect-sliced:not(.notrans) .content > div {
+    -webkit-transition-property: -webkit-transform, opacity;
+    transition-property: transform, opacity;
+}
+
+.intro-effect-sliced:not(.notrans) .bg-img2,
+.intro-effect-sliced:not(.notrans) .header h1,
+.intro-effect-sliced:not(.notrans) .title,
+.intro-effect-sliced:not(.notrans) .header p,
+.intro-effect-sliced:not(.notrans) .content > div,
+.intro-effect-sliced:not(.notrans) .codrops-demos a {
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.intro-effect-sliced.modify:not(.notrans) .header h1,
+.intro-effect-sliced.modify:not(.notrans) .title,
+.intro-effect-sliced.modify:not(.notrans) .header p,
+.intro-effect-sliced.modify:not(.notrans) .content > div,
+.intro-effect-sliced.modify:not(.notrans) .codrops-demos a {
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+
+.intro-effect-sliced .bg-img2:first-child {
+    bottom: 50%;
+}
+
+.intro-effect-sliced .bg-img2:last-child {
+    top: 50%;
+    position: fixed;
+    z-index: 900;
+}
+
+.intro-effect-sliced .bg-img2:last-child img {
+    top: -100%;
+}
+
+.intro-effect-sliced.modify .bg-img2:first-child {
+    -webkit-transform: translateY(-80%);
+    transform: translateY(-80%);
+}
+
+.intro-effect-sliced.modify .bg-img2:last-child {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+}
+
+.intro-effect-sliced .codrops-demos {
+    text-align: center;
+}
+
+.intro-effect-sliced .codrops-demos a {
+    color: #fff;
+    font-size: 0.8em;
+}
+
+.intro-effect-sliced.modify .codrops-demos a {
+    color: #cf4a5c;
+}
+
+.intro-effect-sliced .title {
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.7);
+    transform: translateX(-50%) translateY(-50%) scale(0.7);
+}
+
+.intro-effect-sliced.modify .title {
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+.intro-effect-sliced .header p {
+    opacity: 0;
+    color: #514753;
+}
+
+.intro-effect-sliced.modify .header p {
+    opacity: 1;
+}
+
+.intro-effect-sliced.modify .header h1 {
+    color: #514753;
+}
+
+.intro-effect-sliced .content > div {
+    -webkit-transform: translateY(200px);
+    transform: translateY(200px);
+    opacity: 0;
+}
+
+.intro-effect-sliced.modify .content > div {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+}
+.bg-img2 {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.bg-img2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height:200%;
+}
+
+/* Delays */
+.intro-effect-sliced.modify:not(.notrans) .title {
+    -webkit-transition-delay: 0.15s;
+    transition-delay: 0.15s;
 }
