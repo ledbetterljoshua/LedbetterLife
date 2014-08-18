@@ -20,16 +20,16 @@
 
 /* Common style */
 .grid figure {
-	position: relative;
-	z-index: 1;
-	display: inline-block;
-	overflow: hidden;
-	margin: -0.135em;
-	width: 33.333%;
-	height: 400px;
-	background: #3085a3;
-	text-align: center;
-	cursor: pointer;
+position: relative;
+z-index: 1;
+display: inline-table;
+overflow: hidden;
+margin: 0.865em;
+width: 30.333%;
+height: 400px;
+background: #f6f6f6;
+text-align: center;
+cursor: pointer;
 }
 
 .grid figure .style_image {
@@ -97,7 +97,7 @@
 /*---------------*/
 
 figure.effect-layla {
-	background: #18a367;
+	background: #fff;
 }
 
 figure.effect-layla .style_image {

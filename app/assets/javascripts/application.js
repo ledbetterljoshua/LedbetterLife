@@ -17,60 +17,7 @@
 //= require turbolinks
 //= require masonry/jquery.masonry
 //= require_tree .
-/*
 
-var $overlay = $('<div id="overlay"></div>');
-var $image = $("<img>");
-var $caption = $("<p></p>");
-
-
-//An image to overlay
-$overlay.append($image);
-
-// A caption to overlay
-$overlay.append($caption);
-
-// Add overlay
-$("body").append($overlay);
-
-//Capture the click event on a link to an image
-$("#imageGallery a").click(function(event){
-  event.preventDefault();
-  var imageLocation = $(this).attr("src");
-  //Update overlay with the image linked in the link
-  $image.attr("src", imageLocation);
-
-	// Show the overlay
-	$overlay.show("slow");
-
-	// Get child's alt attribute and set caption
-   var captionText = $(this).children("img").attr("alt");
-    $caption.text(captionText);
-
-});
-
-// When overlay is clicked
-	$overlay.click(function(){
-// Hide the overlay
-	$overlay.hide("fast");
-});
-
-*/
-
-/*!
- * classie v1.0.1
- * class helper functions
- * from bonzo https://github.com/ded/bonzo
- * MIT license
- * 
- * classie.has( elem, 'my-class' ) -> true/false
- * classie.add( elem, 'my-new-class' )
- * classie.remove( elem, 'my-unwanted-class' )
- * classie.toggle( elem, 'my-class' )
- */
-
-/*jshint browser: true, strict: true, undef: true, unused: true */
-/*global define: false, module: false */
 
 ( function( window ) {
 
