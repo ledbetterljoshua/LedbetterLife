@@ -1,211 +1,118 @@
-		<div id="container" class="container intro-effect-sliced">
-			<!-- Top Navigation -->
-      <div class="codrops-top clearfix">
-        <a class="codrops-icon codrops-icon-prev" href="http://www.ledbetterlife.com/"><span>Home</span></a>
-        <span class="right"><a class="codrops-icon codrops-icon-drop" href="http://www.ledbetterlife.com/"><span>About Me</span></a></span>
-      </div>
-      <header class="header">
-        <div class="bg-img2"><%= image_tag("portfolio.jpg", :alt => "rss feed") %></div>
-        <div class="title">
-          <nav class="codrops-demos">
-            <a href="http://www.ledbetterlife.com">Home</a>
-        <%= link_to "Photos", pins_path %>  
-        <%= link_to "Blog", posts_path %>  
-        <%= link_to "Portfolio", portfolio_path, :class => "current-demo" %>
-        <% if user_signed_in? %>
-          <%= link_to "Write Something | ", new_post_path %>  
-          <%= link_to "+ Photo | ", new_pin_path %>
-          <%= link_to "Settings", edit_user_registration_path %>
-        <% else %>
-          <%= link_to "| Log In", new_user_session_path %>
-        <% end %>
-          </nav>
-					<h1>The Work of Joshua Ledbetter</h1>
-					<p class="subline">So far....</p>
 
-				</div>
-				<div class="bg-img2"><%= image_tag("portfolio.jpg", :alt => "Bg image") %></div>
-			</header>
-			<button class="trigger" data-info="Click to see the header effect"><span>Trigger</span></button>
-			<article class="content">
-
-<ul class="ch-grid">
-    <li>
-        <div class="ch-item ch-img-1">
-            <div class="ch-info">
-                <h4>Github.com</h4>
-                <p>by Joshua Ledbetter <a href="https://github.com/ledbetterljoshua" target="_blank">View on Github</a></p>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="ch-item ch-img-2">
-            <div class="ch-info">
-                <h4>Ledbetter Life</h4>
-                <p>by Joshua Ledbetter <a href="http://wwww.ledbetterlife.com/" target="_blank">View Live</a></p>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="ch-item ch-img-3">
-            <div class="ch-info">
-                <h4>Manus</h4>
-                <p>by Joshua Ledbetter <a href="http://damp-anchorage-3289.herokuapp.com/" target="_blank">View on Heroku</a></p>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="ch-item ch-img-4">
-            <div class="ch-info">
-                <h4>Ruby Gem</h4>
-                <p>by Joshua Ledbetter <a href="#">Comming Soon</a></p>
-            </div>
-        </div>
-    </li>    
+<ul class="parallax">
+	<li>
+		<div class="parallax-background git-hub"></div>
+			<p class="git-header">
+				<a href="https://github.com/ledbetterljoshua" target="_blank">Go to my GitHub</a></p>
+		<div class="subContent-img">
+		</div>
+	</li>
+	<li class="intro-portfolio">
+		<div class="parallax-background"></div>
+		<div class="subContent">
+			<h1>Its hard to put everything I do online</h1>
+			<p>Most of my projects are still stuck in my dev folder, but if you keep comming back, hopefully I will have more here to show you. In the mean time, enjoy this awesome parallax effect.</p>
+		</div>		
+	</li>
+	<li style="box-shadow: 0 8px 35px -6px black;
+z-index: 1; z-index:1;">
+		<div class="parallax-background manus"></div>
+		<div class="subContent">
+			<h1>Meet Manus</h1>
+			<p><a href="http://damp-anchorage-3289.herokuapp.com/" target="_blank">A Task Manager</a></p>
+		</div>		
+	</li>
+	<li>
+		<div class="parallax-background ledbetter-life"></div>
+		<div class="subContent">
+			<h1>LedbetterLife.com</h1>
+			<p><a href="http://www.ledbetterlife.com" target="_blank">Go to the Homepage</a></p>
+		</div>
+	</li>
+	<li>
+		<div class="parallax-background gem"></div>
+		<div class="subContent">
+			<h1>Ruby Gem</h1>
+			<p>Comming Soon</p>
+		</div>
+	</li>
 </ul>
-			</article>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
 
-		</div><!-- /container -->
-		<script src="js/classie.js"></script>
-		<script>
-			(function() {
+	(function($) {
 
-				// detect if IE : from http://stackoverflow.com/a/16657946		
-				var ie = (function(){
-					var undef,rv = -1; // Return value assumes failure.
-					var ua = window.navigator.userAgent;
-					var msie = ua.indexOf('MSIE ');
-					var trident = ua.indexOf('Trident/');
+		var $container = $(".parallax");
+		var $divs = $container.find("div.parallax-background");
+		var thingBeingScrolled = document.body;
+		var liHeight = $divs.eq(0).closest("li").height();
+		var diffHeight = $divs.eq(0).height() - liHeight;
+		var len = $divs.length;
 
-					if (msie > 0) {
-						// IE 10 or older => return version number
-						rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-					} else if (trident > 0) {
-						// IE 11 (or newer) => return version number
-						var rvNum = ua.indexOf('rv:');
-						rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
-					}
+		var i, div,li,offset,scroll,top,transform;
 
-					return ((rv > -1) ? rv : undef);
-				}());
+		// cache 
+		var offsets = $divs.get().map(function(div, d) {
+			return $(div).offset();
+		});
+
+		var render = function() {
+
+			top = thingBeingScrolled.scrollTop;
+
+			for(i=0;i<len;i++) {
+
+				div = $divs[i];
+
+				//the offset
+				offset = top - offsets[i].top;
+
+				// The transform string
+				scroll = ~~(offset / liHeight * diffHeight);
+
+				 // The transform string
+				transform = 'translate3d(0px, ' + scroll + 'px, 0px)';
+
+				div.style.webkitTransform = transform;
+				div.style.MozTransform = transform;
+				div.style.msTransform = transform;
+				div.style.OTransform = transform;
+				div.style.Transform = transform;			
+			}
+
+		};
+
+		(function loop(){
+			requestAnimationFrame(loop);
+			render();
+		})();
+
+		(function() {
+			    var lastTime = 0;
+			    var vendors = ['webkit', 'moz'];
+			    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+			        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+			        window.cancelAnimationFrame =
+			          window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+			    }
+
+			    if (!window.requestAnimationFrame)
+			        window.requestAnimationFrame = function(callback, element) {
+			            var currTime = new Date().getTime();
+			            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+			            var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+			              timeToCall);
+			            lastTime = currTime + timeToCall;
+			            return id;
+			        };
+
+			    if (!window.cancelAnimationFrame)
+			        window.cancelAnimationFrame = function(id) {
+			            clearTimeout(id);
+			        };
+			}());
+
+	})(jQuery);
 
 
-				// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179					
-				// left: 37, up: 38, right: 39, down: 40,
-				// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-				var keys = [32, 37, 38, 39, 40], wheelIter = 0;
-
-				function preventDefault(e) {
-					e = e || window.event;
-					if (e.preventDefault)
-					e.preventDefault();
-					e.returnValue = false;  
-				}
-
-				function keydown(e) {
-					for (var i = keys.length; i--;) {
-						if (e.keyCode === keys[i]) {
-							preventDefault(e);
-							return;
-						}
-					}
-				}
-
-				function touchmove(e) {
-					preventDefault(e);
-				}
-
-				function wheel(e) {
-					// for IE 
-					//if( ie ) {
-						//preventDefault(e);
-					//}
-				}
-
-				function disable_scroll() {
-					window.onmousewheel = document.onmousewheel = wheel;
-					document.onkeydown = keydown;
-					document.body.ontouchmove = touchmove;
-				}
-
-				function enable_scroll() {
-					window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
-				}
-
-				var docElem = window.document.documentElement,
-					scrollVal,
-					isRevealed, 
-					noscroll, 
-					isAnimating,
-					container = document.getElementById( 'container' ),
-					trigger = container.querySelector( 'button.trigger' );
-
-				function scrollY() {
-					return window.pageYOffset || docElem.scrollTop;
-				}
-				
-				function scrollPage() {
-					scrollVal = scrollY();
-					
-					if( noscroll && !ie ) {
-						if( scrollVal < 0 ) return false;
-						// keep it that way
-						window.scrollTo( 0, 0 );
-					}
-
-					if( classie.has( container, 'notrans' ) ) {
-						classie.remove( container, 'notrans' );
-						return false;
-					}
-
-					if( isAnimating ) {
-						return false;
-					}
-					
-					if( scrollVal <= 0 && isRevealed ) {
-						toggle(0);
-					}
-					else if( scrollVal > 0 && !isRevealed ){
-						toggle(1);
-					}
-				}
-
-				function toggle( reveal ) {
-					isAnimating = true;
-					
-					if( reveal ) {
-						classie.add( container, 'modify' );
-					}
-					else {
-						noscroll = true;
-						disable_scroll();
-						classie.remove( container, 'modify' );
-					}
-
-					// simulating the end of the transition:
-					setTimeout( function() {
-						isRevealed = !isRevealed;
-						isAnimating = false;
-						if( reveal ) {
-							noscroll = false;
-							enable_scroll();
-						}
-					}, 600 );
-				}
-
-				// refreshing the page...
-				var pageScroll = scrollY();
-				noscroll = pageScroll === 0;
-				
-				disable_scroll();
-				
-				if( pageScroll ) {
-					isRevealed = true;
-					classie.add( container, 'notrans' );
-					classie.add( container, 'modify' );
-				}
-				
-				window.addEventListener( 'scroll', scrollPage );
-				trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
-			})();
-		</script>
+</script>
