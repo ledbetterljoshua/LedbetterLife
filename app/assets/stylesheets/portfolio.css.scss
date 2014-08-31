@@ -37,6 +37,16 @@ ul li .subContent {
 	color: white;
 	font-family: helvetica;
 	padding: 10px;
+	padding-right: 106px;
+}
+
+.subContent2 {
+	position: absolute !important;
+	top: 552px;
+	z-index: 9999;
+	text-align: center;
+	width: 100%;
+	font-weight: 600;
 }
 
 .subContent-img {
@@ -46,7 +56,7 @@ ul li .subContent {
 	background-image: url(/assets/tgithub.png);
 	background-repeat: no-repeat;
 	height: 100%;
-	background-size: contain;
+	background-size: initial;
 	width: 100%;
 	margin-left: 40%;
 }
@@ -70,4 +80,6 @@ background: gainsboro;
 padding: 10px;
 width: 100%;
 text-align: center;
+padding-bottom: 57px;
+opacity: .57;
 }

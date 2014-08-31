@@ -56,7 +56,7 @@ padding: 20px;
 	background-image: url(/assets/tgithub.png);
 	background-repeat: no-repeat;
 	height: 100%;
-	background-size: contain;
+	background-size: contain !important;
 	width: 67% !important;
 	margin-left: 18% !important;
 }
