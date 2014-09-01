@@ -1,9 +1,16 @@
 
 <ul class="parallax">
 	<li>
+		<div id="git-hub">	</div>
 		<div class="parallax-background git-hub"></div>
+		 <nav class="navigation">
+		 			<a class="nav-git-hub">Back to Top</a>
+		 			<!--<a class="nav-manus">Manus</a>
+		 			<a class="nav-llife">LedbetterLife</a>
+		 			<a href="#ruby" class="nav-ruby">Ruby</a> -->
+          </nav>
 		<a href="https://github.com/ledbetterljoshua" target="_blank" 
-		class="subContent2">Go to my GitHub</a>
+		class="subContent2">Visit my GitHub</a>
 			<p class="git-header"></p>
 		<div class="subContent-img">
 		</div>
@@ -11,18 +18,20 @@
 	<li class="intro-portfolio">
 		<div class="parallax-background"></div>
 		<div class="subContent">
-			<h1>It is difficult to keep all of my projects online.</h1>
-			<p>Most of my projects are still stuck in my dev folder, but if you keep comming back, hopefully I will have more here to show you. In the mean time, enjoy this awesome parallax effect.</p>
+			<h1>Thank you for checking out my portfolio!</h1>
+			<p>It is difficult to keep all of my projects online. Most of my projects are still stuck in my dev folder, but if you keep comming back, hopefully I will have more here to show you. In the mean time, enjoy this awesome parallax effect.</p>
 		</div>		
 	</li>
 	<li style="box-shadow: 0 8px 35px -6px black;
 z-index: 1; z-index:1;">
+		<div id="manus">		</div>
 		<div class="parallax-background manus"></div>
 			<p><a href="http://damp-anchorage-3289.herokuapp.com/" target="_blank" 
 		class="subContent2">Meet Manus</a>
 			<p class="git-header"></p>
 	</li>
 	<li>
+		<div id="llife">		</div>
 		<div class="parallax-background ledbetter-life"></div>
 			<h1 style="position: absolute;
 width: 100%;
@@ -33,6 +42,7 @@ color: ghostwhite;">LedbetterLife.com</h1>
 			<p class="git-header"></p>
 	</li>
 	<li>
+		<div id="ruby">	</div>
 		<div class="parallax-background gem"></div>
 		<div class="subContent">
 			<h1>Ruby Gem</h1>
@@ -117,5 +127,24 @@ color: ghostwhite;">LedbetterLife.com</h1>
 
 	})(jQuery);
 
+
+$(document).ready(function() {
+    $('.nav-git-hub').click(function(){
+		$('html, body').animate({scrollTop:$('#git-hub').position().top}, 'slow');
+        return false;
+    });
+    $('.nav-manus').click(function(){
+		$('html, body').animate({scrollTop:$('#manus').position().top}, 'slow');
+        return false;
+    });
+    $('.nav-llife').click(function(){
+		$('html, body').animate({scrollTop:$('#llife').position().top}, 'slow');
+        return false;
+    });
+    $('.nav-ruby').click(function(){
+		$('html, body').animate({scrollTop:$('#ruby').position().top}, 'fast');
+        return false;
+    });
+});
 
 </script>
