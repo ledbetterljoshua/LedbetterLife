@@ -53,7 +53,7 @@ ul li .subContent {
 	position: absolute;
 	top: 20%;
 	font-family: helvetica;
-	background-image: url(/assets/tgithub.png);
+	background-image:image-url('tgithub.png');
 	background-repeat: no-repeat;
 	height: 63%;
 	background-size: 300px;
@@ -65,7 +65,7 @@ ul li .subContent {
 	height: 400px;
 	background: cadetblue;
 	box-shadow: 0 8px 35px -6px black;
-	z-index: 11;
+	z-index: 12;
 }
 
 body > ul > li > p > a {
