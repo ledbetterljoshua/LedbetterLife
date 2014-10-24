@@ -1,79 +1,74 @@
 ul {
-	margin: 0;
-	padding:0;
+margin: 0;
+padding:0;
 }
 ul li {
-	list-style: none;
-	overflow: hidden;
-	height: 600px;
-	position: relative;
+list-style: none;
+overflow: hidden;
+height: 600px;
+position: relative;
 }
 .parallax-background {
-	height: 700px;
+height: 800px;
 }
 .git-hub {
-	background-image:image-url('portfolio.jpg'); 
-	background-size: cover;
+background-image:image-url('portfolio.jpg'); 
+background-size: cover;
 }
 .manus {
-	background-image:image-url('iphone.jpg'); 
-	background-size: cover;
-	background-position-x: -106%;
+background-image:image-url('iphone.jpg'); 
+background-size: cover;
+background-position-x: -106%;
 }
 .ledbetter-life {
-	background-image:image-url('imac.jpg'); 
-	background-position: 50% 67%;
-	background-size: cover;
+background-image:image-url('imac.jpg'); 
+background-position: 50% 67%;
+background-size: cover;
 }
 .gem {
-	background-image:image-url('ruby-on-rails.jpg'); 
-	background-position: 50%;
-	background-size: cover;
+background-image:image-url('ruby-on-rails.jpg'); 
+background-position: 50%;
+background-size: cover;
 }
 ul li .subContent {
-	position: absolute;
-	top: 0;
-	left: 100px;
-	color: white;
-	font-family: helvetica;
-	padding: 10px;
-	padding-right: 106px;
+position: absolute;
+top: 0;
+left: 100px;
+color: white;
+font-family: helvetica;
+padding: 10px;
+padding-right: 106px;
 }
 
 .subContent2 {
-	position: absolute !important;
-	top: 552px;
-	z-index: 9999;
-	text-align: center;
-	width: 100%;
-	font-weight: 600;
+position: absolute !important;
+top: 552px;
+z-index: 9999;
+text-align: center;
+width: 100%;
+font-weight: 600;
 }
 
 .subContent-img {
-	position: absolute;
-	top: 20%;
-	font-family: helvetica;
-	background-image:image-url('tgithub.png');
-	background-repeat: no-repeat;
-	height: 63%;
-	background-size: 300px;
-	width: 27%;
-	min-width: 275px;
+position: absolute;
+top: 20%;
+font-family: helvetica;
+background-image:image-url('tgithub.png');
+background-repeat: no-repeat;
+height: 63%;
+background-size: 300px;
+width: 27%;
+min-width: 275px;
 }
 
-.intro-portfolio {
-	height: 400px;
-	background: cadetblue;
-	box-shadow: 0 8px 35px -6px black;
-	z-index: 12;
-}
+
 
 body > ul > li > p > a {
-	text-decoration: overline;
-	font-size: 135%;
+text-decoration: overline;
+font-size: 135%;
 }
 .git-header {
- top: 513px;
+ top: 526px;
 position: absolute;
 z-index: 999;
 background: gainsboro;
@@ -84,5 +79,6 @@ padding-bottom: 57px;
 opacity: .57;
 }
 #github, #manus, #llife, #ruby {
-	position: absolute;
+position: absolute;
 }
+

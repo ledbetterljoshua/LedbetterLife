@@ -68,7 +68,10 @@ ul li .subContent {
 	font-family: helvetica;
 	font-size: 70% !important;
 }
-
+.tooltip.active  {
+	left: 10% !important;
+	right: 10% !important;
+}
 }
 
 /* Smartphones (portrait) ----------- */

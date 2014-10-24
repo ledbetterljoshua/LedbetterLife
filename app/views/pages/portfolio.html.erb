@@ -1,16 +1,16 @@
-
+<div id="page-wrap">
 <ul class="parallax">
 	<li>
 		<div id="git-hub">	</div>
 		<div class="parallax-background git-hub"></div>
 		 <nav class="navigation">
-		 			<a class="nav-git-hub">Back to Top</a>
+		 			<a class="nav-ruby">Back to Top</a>
 		 			<!--<a class="nav-manus">Manus</a>
 		 			<a class="nav-llife">LedbetterLife</a>
 		 			<a href="#ruby" class="nav-ruby">Ruby</a> -->
           </nav>
 		<a href="https://github.com/ledbetterljoshua" target="_blank" 
-		class="subContent2">Visit my GitHub</a>
+		class="subContent2" title="Git Hub is an awesome place where I get to store and back up all of my projects, as well as share them with you! If you are interested in viewing the code for this site, click the link below.">Visit my GitHub</a>a
 			<p class="git-header"></p>
 		<div class="subContent-img">
 		</div>
@@ -18,7 +18,7 @@
 	<li class="intro-portfolio">
 		<div class="parallax-background"></div>
 		<div class="subContent">
-			<h1>Thank you for checking out my portfolio!</h1>
+			<h1>Thank you for checking out my Portfolio!</h1>
 			<p>It is difficult to keep all of my projects online. Most of my projects are still stuck in my dev folder, but if you keep comming back, hopefully I will have more here to show you. In the mean time, enjoy this awesome parallax effect.</p>
 		</div>		
 	</li>
@@ -27,7 +27,7 @@ z-index: 1; z-index:11;">
 		<div id="manus">		</div>
 		<div class="parallax-background manus"></div>
 			<p><a href="http://damp-anchorage-3289.herokuapp.com/" target="_blank" 
-		class="subContent2">Meet Manus</a>
+		class="subContent2" title="Manus is a project I worked on for teamtreehouse.com, it is built on the Ruby language and allowed me to really explore the possiblities and complexities of programming.">Meet Manus</a>
 			<p class="git-header"></p>
 	</li>
 	<li>
@@ -50,6 +50,7 @@ color: ghostwhite;">LedbetterLife.com</h1>
 		</div>
 	</li>
 </ul>
+</div>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -129,18 +130,6 @@ color: ghostwhite;">LedbetterLife.com</h1>
 
 
 $(document).ready(function() {
-    $('.nav-git-hub').click(function(){
-		$('html, body').animate({scrollTop:$('#git-hub').position().top}, 'slow');
-        return false;
-    });
-    $('.nav-manus').click(function(){
-		$('html, body').animate({scrollTop:$('#manus').position().top}, 'slow');
-        return false;
-    });
-    $('.nav-llife').click(function(){
-		$('html, body').animate({scrollTop:$('#llife').position().top}, 'slow');
-        return false;
-    });
     $('.nav-ruby').click(function(){
 		$('html, body').animate({scrollTop:$('#ruby').position().top}, 'fast');
         return false;
@@ -148,3 +137,8 @@ $(document).ready(function() {
 });
 
 </script>
+    <script>
+  $(document).ready(function() {
+      $("#page-wrap a[title]").tooltips();
+    });
+  </script>

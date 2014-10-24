@@ -1,45 +1,117 @@
-<span class="demo-2">
-  <div id="container" class="container intro-effect-fadeout">
-      <!-- Top Navigation -->
-
-      <header class="header">
-        <div class="bg-img"><%= image_tag("imac.jpg", :alt => "rss feed") %></div>
-        <div class="title">
-          <nav class="codrops-demos">
-            <a class="current-demo" href="http://www.ledbetterlife.com">Home</a>
-        <%= link_to "Photos", pins_path %>  
-        <%= link_to "Blog", posts_path %>  
-        <%= link_to "Portfolio", portfolio_path %>
-        <% if user_signed_in? %>
-          <%= link_to "Write Something | ", new_post_path %>  
-          <%= link_to "+ Photo | ", new_pin_path %>
-          <%= link_to "Settings", edit_user_registration_path %>
-        <% else %>
-          <%= link_to "| Log In", new_user_session_path %>
-        <% end %>
-          </nav>
-          <h1>Ledbetterlife.com</h1>
-          <p class="subline">The Online Home of Joshua Ledbetter</p>
+<div id="page-wrap" style="
+    box-shadow: 0px -5px 47px 6px black;
+">
+<ul class="parallax">
+    <li>
+        <div id="git-hub">  </div>
+        <div class="parallax-background git-hub"></div>
+        <div class="sub-content">
+            <h1>Ledbetter<span style="color:rosybrown;">Life</span></h1>
+            <p>From austin</p>
         </div>
-      </header>
-      <article class="content">
-        <div class="paragraphs">
+                 <nav class="navigation">
+                    <a class="nav-ruby">Back to Top</a>
+                    <a href="/pins">Photos</a> 
+                    <a href="https://github.com/ledbetterljoshua" target="_blank">Git Hub</a>
+          </nav>
+
+    </li>
+    <li class="intro-portfolio">
+        <div class="parallax-background"></div>
+         <article class="content">
+
+<div class="paragraphs" style="
+    position: relative;
+    top: -840px;
+">
           <p>Hi there, thanks for checking out my site.  </p>
-          <p>This website is build on Ruby on Rails, and utilizes a lot of its awesome features. I also was able to work with Sass and Coffee Script on this project, which Rails ships with by Defaut. The images for this site can be found at the awesome site that is <a href="http://unsplash.com/"target="_blank">unsplash.com,</a> and a lot of the inspiration for the site has come from the web designer <a href="http://tympanus.net/codrops/author/crnacura/"target="_blank">MARY LOU</a>.</p>
-          <p>Anyways, my name is Joshua Ledbetter. I have been programming for about two years now, and I just cant get enough. I haven't quite decided if I want to be a front end developer or a back end developer. I have such a love for beautiful designs, but also for the simplicity and beauty of the Ruby language. </p>
-          <p>I am self tought, with knowledge in HTML, CSS, Sass, jQuery, Javascrip, Ruby and Ruby on Rails. And I owe it all to Google.  </p>
+          <p>This website is build on Ruby on Rails, and utilizes a lot of its awesome features. I also was able to work with Sass and Coffee Script on this project.</p>
+          <p>Anyways, my name is Joshua Ledbetter. I have been programming for about two years now, and I just cant get enough. I haven't quite decided if I want to be a front end developer or a back end developer yet. I have a love for beautiful designs, but also for the simplicity and beauty of the Ruby language. </p>
+          <p>I am self tought, with knowledge in HTML, CSS, Sass, jQuery, Javascript, Ruby and Ruby on Rails. And I owe it all to Google.  </p>
           <p>Right now I am working for a ecommerce company called <a href="http://www.volusion.com" target="_blank"> Volusion</a></p>
           <p>I work in the tech support department as a software technician, and the only code I really get to work with is the broken templates that people like to call in about. This isn't bad, but I would like more of a challenge. </p>
           
           <p><strong>Thanks for checking out the site!</strong></p>
         </div>
       </article>
-      <section class="related">
-        <p>If you would like to see more of my work, follow the link below:</p>
-        <div><h4><%= link_to "Portfolio", portfolio_path %></h4></div>
-      </section>
-    </div><!-- /container -->
-    <script>
-  
-    </script>
-    </span>
+    </li>
+    <li style="box-shadow: 0 8px 35px -6px black;
+z-index: 1; z-index:11; height:300px;">
+        <div id="manus">        </div>
+        <div class="parallax-background manus"></div>
+       <div class="sub-content">
+            <h1 style="
+    position: relative;
+    top: -70px;
+"><span class="under-under"><a href="http://damp-anchorage-3289.herokuapp.com/" target="_blank">Manus.</a></span> <br/> <span style="color:rosybrown; font-size:.5em; text-shadow:none;">The Task Manager!</span></h1>
+        </div>
+            
+    </li>
+    <li class="show-bg">
+        <div id="llife">        </div>
+        <div class="parallax-background ledbetter-life"></div>
+        <figure class="effect-layla">
+          <figcaption>
+              <div class="sub-content">
+            <h1 style="
+    position: relative;
+    top: -70px;
+    left: -70px;
+">LedbetterLife. <br/> <span style="color:rosybrown; font-size:.5em; text-shadow:none;">The Main Website!</span></h1>
+            
+    </li>
+              </figcaption>
+       </figure>
+    <li>
+        <div id="ruby"> </div>
+        <div class="parallax-background gem"></div>
+    <figure class="images effect-layla">
+          <figcaption>
+          </figcaption>
+       </figure>
+
+    </li>
+    <li style="background:#fff; ">
+<div id="contact" style="
+    text-align: center;
+"> 
+<h1 style="
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+">Contact Me
+  </h1>
+<p style="
+    position: relative;
+    z-index: 99;
+    top: 150px;
+">Email: <a href="mailto:ledbetterljoshua@gmail.com?subject:from%20ledbetterlife" target="_blank" style="color:royalblue;">ledbetterljoshua@gmail.com</a></p>
+<p style="
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+    top: 191px;
+">Phone: 512-578-6118</p>
+    <div class="parallax-background footer"></div>
+</div>
+
+    </li>
+    <li style="background:slategray; height:100px;">
+        <div id="footer">
+            <p style="text-align: center;">Designed by <a href="http://ledbetterlife.com/" target="_blank" style="color:whitesmoke;">Joshua Ledbetter </a></p>
+
+         </div>
+
+
+    </li>
+</ul>
+</div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+
+           <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>

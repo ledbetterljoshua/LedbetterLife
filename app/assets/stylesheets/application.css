@@ -507,3 +507,9 @@ button.trigger span::before {
 	}
 }
 
+.codrops-top span.right {
+margin-right: 89px;
+}
+body > div.codrops-top.clearfix > a {
+margin-left: 90px;
+}

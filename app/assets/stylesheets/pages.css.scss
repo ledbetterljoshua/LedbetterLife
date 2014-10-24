@@ -1,0 +1,271 @@
+
+ @import url(http://fonts.googleapis.com/css?family=Raleway:400,300,800|Lora:400italic|Playfair+Display:700);
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: 'codropsicons';
+  src:url('../fonts/codropsicons/codropsicons.eot');
+  src:url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/codropsicons/codropsicons.woff') format('woff'),
+    url('../fonts/codropsicons/codropsicons.ttf') format('truetype'),
+    url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+}
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { display: table; content: ''; }
+.clearfix:after { clear: both; }
+
+
+body {
+  background: #fff;
+  color: #69606b;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.5;
+  font-family: 'Raleway', Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+ul {
+	margin: 0;
+	padding:0;
+}
+ul li {
+	list-style: none;
+	overflow: hidden;
+	height: 600px;
+	position: relative;
+}
+.parallax-background {
+	height: 800px;
+  top: -128px;
+position: relative;
+}
+.git-hub {
+	background-image:url('../images/sitting.jpg'); 
+	background-size: cover;
+
+}
+.manus {
+  background-image: url('../images/crowd.jpg');
+  background-size: cover;
+  background-position-x: 7%;
+  background-position-y: -183px;
+}
+.ledbetter-life {
+	background-image:url('imac.jpg'); 
+	background-position: 50% 67%;
+	background-size: cover;
+}
+.gem {
+	background-image:url('ruby-on-rails.jpg'); 
+	background-position: 50%;
+	background-size: cover;
+}
+ul li .subContent {
+	position: absolute;
+	top: 0;
+	left: 100px;
+	color: white;
+	font-family: helvetica;
+	padding: 10px;
+	padding-right: 106px;
+}
+
+.sub-content {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}
+.sub-content h1 {
+  text-align: center;
+  text-shadow: 0px 0px 11px white;
+
+}
+.sub-content p {
+  text-align: center;
+}
+
+.subContent2 {
+	position: absolute !important;
+	top: 552px;
+	z-index: 9999;
+	text-align: center;
+	width: 100%;
+	font-weight: 600;
+}
+
+.subContent-img {
+	position: absolute;
+	top: 20%;
+	font-family: helvetica;
+	background-image:url('tgithub.png');
+	background-repeat: no-repeat;
+	height: 63%;
+	background-size: 300px;
+	width: 27%;
+	min-width: 275px;
+}
+
+.intro-portfolio {
+	height: 800px;
+	box-shadow: 0 8px 35px -6px black;
+	z-index: 12;
+  background:#fff;
+}
+
+body > ul > li > p > a {
+	text-decoration: overline;
+	font-size: 135%;
+}
+.git-header {
+ top: 526px;
+position: absolute;
+z-index: 999;
+background: gainsboro;
+padding: 10px;
+width: 100%;
+text-align: center;
+padding-bottom: 57px;
+opacity: .57;
+}
+#github, #manus, #llife, #ruby {
+	position: absolute;
+}
+.show-bg {
+  background: slategray;
+}
+.showtimes {
+position: absolute;
+top: 100px;
+left: auto;
+width: 100%;
+}
+.showtimes-box {
+float: left;
+padding-left: 95px;
+padding-bottom: 59px;
+}
+.date {
+font-size: 31px;
+font-kerning: inherit;
+font-weight: 700;
+color: aliceblue;
+}
+.location {
+color: lightblue;
+}
+.time {
+color: lightgray;
+}
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #69606b;
+}
+.navigation {
+position: relative;
+top: -283px;
+height: 96px;
+background: black;
+opacity: 0.58;
+padding-top: 7px;
+text-align: center;
+width: 100%;
+z-index: 999;
+border-top: solid 7px green;
+   -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+}
+.navigation a {
+padding-left: 37px;
+}
+
+.fixed {
+    position: fixed;
+    top:0; left:0;
+    width: 100%; 
+    height: 46px;
+    border-top: solid 3px green;
+}
+
+
+
+
+/* image gallery */
+.images ul {
+  list-style:none;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  max-width: 780px;
+  text-align: center;
+}
+.images ul li {
+  display: inline-block;
+  padding: 8px;
+  background:white;
+  margin:10px;
+  height: auto;
+}
+.images ul li img {
+  display: block;
+}
+
+#overlay {
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  display:none;
+  text-align: center;
+}
+
+#overlay img {
+  margin-top: 10%;
+  width:500px;
+}
+
+#overlay p {
+  color:white;
+}
+
+.the-coolest {
+  font-size:20px;
+  color:blue;
+
+}
+.images {
+position: absolute;
+width: 100%;
+top: 0;
+height: 600px;
+}
+.images img:hover {opacity: .8;}
+
+
+
+
+.footer {
+background: url('../images/band.jpg');
+margin-top: -115px;
+opacity: .59;
+}
+h1 {
+  font-size:3em;
+}
+span.under-under:hover {
+border-bottom: 7px solid white;
+transition: all .6s;
+}
+a:hover {transition:all .4s;}
